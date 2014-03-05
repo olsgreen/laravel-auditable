@@ -65,7 +65,7 @@ class Auditable {
 			$cs = new Changeset;
 			$cs->object_type = get_class($model); // Manual
 			$cs->object_id = $model->$primarykey; // Manual
-			$cs->user_id = \Auth::user()->id;
+			$cs->user_id = (\Auth::user() instanceof \User) ? \Auth::user()->id : 0;
 			$cs->save();
 
 			// Add the Changeset changes
