@@ -17,6 +17,8 @@ class AddAuditableChangesetsTable extends Migration {
 			$table->string('object_type');
 			$table->integer('object_id')->unsigned();
 			$table->integer('user_id')->unsigned();
+			$table->string('action', 255)->nullable();
+			$table->string('name', 255)->nullable();
 			$table->timestamps();
 			$table->index(array('object_id', 'object_type'));
 		});
