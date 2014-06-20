@@ -22,7 +22,7 @@ Run `composer update` to update your app or `composer install` to install.
 
 After install / update you will need to run the packages migrations like so:
 
-	php artisan migrate --package="olsgreen/auditable"
+	php artisan migrate --package="olsgreen/laravel-auditable"
 
 and also add `Auditable` as a service provider within your `app/config/app.php`:
 
@@ -48,7 +48,20 @@ Auditable offers two methods of implementation:
 To come.
 
 ### Using Auditable via a model event observer
-To come.
+Import the Obeser in your model
+
+	use Olsgreen\Auditable\Observer;
+
+Add observer to your model
+
+	User::observe(new Observer);
+
+Provide representation to your model.
+
+	public $represent = 'first_name'; 
+	//or
+	public $represent = 'country_name';
+
 
 ## License
 Copyright (c) 2014 Oliver Green
